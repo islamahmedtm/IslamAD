@@ -1,0 +1,36 @@
+# PowerShell
+*.ps1xml
+*.psm1
+*.psd1
+*.dll
+*.mof
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Backup files
+*.bak
+*~
+
+# Local configuration
+*.local
+*.user
+*.suo
+
+# Test results
+TestResults/
+
+# Package management
+packages/
+*.nupkg 
