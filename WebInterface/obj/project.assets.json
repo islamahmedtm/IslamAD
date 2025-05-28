@@ -1,0 +1,99 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "Microsoft.PowerShell.SDK >= 7.3.0",
+      "System.Management.Automation >= 7.3.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\islam.ahmed\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\A.D\\WebInterface\\WebInterface.csproj",
+      "projectName": "WebInterface",
+      "projectPath": "D:\\A.D\\WebInterface\\WebInterface.csproj",
+      "packagesPath": "C:\\Users\\islam.ahmed\\.nuget\\packages\\",
+      "outputPath": "D:\\A.D\\WebInterface\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\islam.ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "dependencies": {
+          "Microsoft.PowerShell.SDK": {
+            "target": "Package",
+            "version": "[7.3.0, )"
+          },
+          "System.Management.Automation": {
+            "target": "Package",
+            "version": "[7.3.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.410\\RuntimeIdentifierGraph.json"
+      }
+    }
+  },
+  "logs": [
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.PowerShell.SDK (>= 7.3.0)' for 'net7.0'.",
+      "libraryId": "Microsoft.PowerShell.SDK",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'System.Management.Automation (>= 7.3.0)' for 'net7.0'.",
+      "libraryId": "System.Management.Automation",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
+}

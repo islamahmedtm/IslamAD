@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "dgSpecHash": "qIpzW1G58en5kgbN2RPFMwd3mSmtquMSepc3/5DImfIg2wxQw1I/azG1c1Q4OF+BfkpGjtYHb3bXXH0+K1ZDew==",
+  "success": false,
+  "projectFilePath": "D:\\A.D\\WebInterface\\WebInterface.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.PowerShell.SDK (>= 7.3.0)' for 'net7.0'.",
+      "libraryId": "Microsoft.PowerShell.SDK",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'System.Management.Automation (>= 7.3.0)' for 'net7.0'.",
+      "libraryId": "System.Management.Automation",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
+}

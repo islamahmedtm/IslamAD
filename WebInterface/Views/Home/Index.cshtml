@@ -1,0 +1,143 @@
+@{
+    ViewData["Title"] = "Active Directory Management Tool";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+            <div class="position-sticky pt-3">
+                <h6 class="sidebar-heading px-3 mt-4 mb-1 text-muted">
+                    <span>AD Management</span>
+                </h6>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-section="users">
+                            <i class="fas fa-users"></i>
+                            User Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="groups">
+                            <i class="fas fa-layer-group"></i>
+                            Group Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="computers">
+                            <i class="fas fa-desktop"></i>
+                            Computer Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="fsmo">
+                            <i class="fas fa-server"></i>
+                            FSMO Roles
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="backup">
+                            <i class="fas fa-database"></i>
+                            Backup & Recovery
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Active Directory Management Tool</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group me-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" id="refreshBtn">
+                            <i class="fas fa-sync"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content sections -->
+            <div id="users-section" class="content-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>User Management</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="createUserForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create User</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other sections will be added dynamically via JavaScript -->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Handle sidebar navigation
+            $('.nav-link').click(function(e) {
+                e.preventDefault();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+                
+                const section = $(this).data('section');
+                $('.content-section').hide();
+                $(`#${section}-section`).show();
+            });
+
+            // Handle user creation
+            $('#createUserForm').submit(function(e) {
+                e.preventDefault();
+                const userData = {
+                    firstName: $('#firstName').val(),
+                    lastName: $('#lastName').val(),
+                    username: $('#username').val(),
+                    password: $('#password').val()
+                };
+
+                $.post('/Home/ExecuteADCommand', {
+                    command: `New-CustomADUser -FirstName "${userData.firstName}" -LastName "${userData.lastName}" -Username "${userData.username}" -Password "${userData.password}"`
+                })
+                .done(function(response) {
+                    if (response.success) {
+                        alert('User created successfully!');
+                        $('#createUserForm')[0].reset();
+                    } else {
+                        alert('Error: ' + response.error);
+                    }
+                })
+                .fail(function(xhr) {
+                    alert('Error executing command');
+                });
+            });
+        });
+    </script>
+} 
