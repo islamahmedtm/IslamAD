@@ -1,86 +1,54 @@
 # Active Directory Management Tool
 ### Developed by Islam A.D
 
-A comprehensive PowerShell-based GUI tool for managing Active Directory infrastructure.
+A comprehensive Active Directory management solution with both PowerShell GUI and Web Interface.
 
 ## Features
 
-- **User Management**
-  - Create new users
-  - Reset passwords
-  - Manage user properties
-  - Search and filter users
+- User Management
+- Group Management
+- OU Management
+- Password Management
+- Web Interface for remote management
+- PowerShell GUI for local management
 
-- **Group Management**
-  - Create security and distribution groups
-  - Manage group memberships
-  - Modify group properties
+## Components
 
-- **Computer Management**
-  - Add new computer accounts
-  - Search computer information
-  - Manage computer properties
+### PowerShell GUI
+- `ADManagement.ps1`: Core AD management functions
+- `ADManagementGUI.ps1`: GUI interface for AD management
 
-- **FSMO Roles Management**
-  - View current FSMO role holders
-  - Transfer FSMO roles
-  - Manage role assignments
-
-- **Backup & Recovery**
-  - Create AD backups
-  - System state backup
-  - Backup location management
+### Web Interface
+- ASP.NET Core web application
+- Modern responsive design
+- Secure authentication
+- Remote AD management capabilities
 
 ## Requirements
 
-- Windows Server 2016/2019/2022
-- PowerShell 5.1 or later
-- Active Directory Module for Windows PowerShell
-- RSAT Tools installed
+- Windows Server with Active Directory Domain Services
+- PowerShell 5.1 or higher
+- .NET Core 6.0 or higher (for web interface)
+- Active Directory PowerShell module
 
 ## Installation
 
 1. Clone this repository:
-```powershell
-git clone https://github.com/yourusername/ad-management-tool.git
+```bash
+git clone https://github.com/islamahmedtm/IslamAD.git
 ```
 
-2. Ensure you have the required PowerShell modules:
-```powershell
-Import-Module ActiveDirectory
-```
+2. For PowerShell GUI:
+   - Run ADManagementGUI.ps1 with appropriate permissions
 
-3. Run the GUI:
-```powershell
-.\ADManagementGUI.ps1
-```
-
-## Usage
-
-1. Launch the application using PowerShell with administrative privileges
-2. Navigate through the tabs for different management functions
-3. Use the intuitive GUI interface to perform AD management tasks
-4. Check the status bar for operation results
-
-## Security Note
-
-- Always run this tool with appropriate administrative privileges
-- Ensure proper access controls are in place
-- Follow your organization's security policies
-- Keep audit logs of all changes made
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+3. For Web Interface:
+   - Navigate to WebInterface directory
+   - Build and run the ASP.NET Core application
 
 ## Author
 
 Islam A.D
 
-## Disclaimer
+## License
 
-This tool is provided as-is without any warranties. Always test in a non-production environment first. 
+This project is open source and available under the MIT License. 
